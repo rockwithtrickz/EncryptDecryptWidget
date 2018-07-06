@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:id="@+id/root"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/Icon"
+        android:padding="2dp"
+        android:layout_marginRight="5.0dp" />
+    <LinearLayout
+        android:id="@+id/flyout"
+        android:background="@drawable/round_corners"
+        android:layout_marginTop="0.0dp"
+        android:layout_marginLeft="28.0dp"
+        android:visibility="visible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+        <Button
+            android:text="ENCRYPT"
+            android:id="@+id/encryptMessage"
+            android:background="@null"
+            android:layout_width="160.0dp"
+            android:layout_height="60.0dp"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:cursorVisible="false"
+            android:layout_marginTop="0.0dp" />
+        <Button
+            android:text="DECRYPT"
+            android:id="@+id/decryptMessage"
+            android:layout_marginTop="0.0dp"
+            android:background="@null"
+            android:layout_width="160.0dp"
+            android:layout_height="60.0dp"
+            android:textColorHint="#fff"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:textSize="16sp" />
+        <ImageView
+            android:layout_width="30.0dp"
+            android:layout_height="30.0dp"
+            android:src="@drawable/close"
+            android:id="@+id/close"
+            android:layout_marginLeft="0.0dp"
+            android:layout_marginTop="0.0dp"
+            android:padding="5dp" />
+    </LinearLayout>
+</RelativeLayout>
