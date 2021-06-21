@@ -12,16 +12,9 @@ namespace EncryptDecryptWidget
         {
             base.OnCreate(bundle);
            
-           // SetContentView(Resource.Layout.Main);
-
-           
-        
-
+            //SetContentView(Resource.Layout.Main);
             StartService(new Intent(this, typeof(EncryptDecryptWidgetService)));
-
             Finish();
-
-
         }
     }
 }
