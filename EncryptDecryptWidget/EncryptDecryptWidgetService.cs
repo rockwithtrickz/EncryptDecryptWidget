@@ -14,7 +14,6 @@ namespace EncryptDecryptWidget
     [Service]
     internal class EncryptDecryptWidgetService : Service, View.IOnTouchListener
     {
-
         private bool expanded;
         private IWindowManager _windowManager;
         private WindowManagerLayoutParams _layoutParams;
@@ -41,11 +40,7 @@ namespace EncryptDecryptWidget
 
             _clipboard = (ClipboardManager)GetSystemService(ClipboardService);
 
-
             SetTouchListener();
-
-
-           
 
             _layoutParams = new WindowManagerLayoutParams(
                 ViewGroup.LayoutParams.WrapContent,
@@ -62,7 +57,6 @@ namespace EncryptDecryptWidget
             _windowManager = GetSystemService(WindowService).JavaCast<IWindowManager>();
             _windowManager.AddView(floatingView, _layoutParams);
 
-          
 
             encryptMessage.Click += delegate {
 
@@ -72,7 +66,6 @@ namespace EncryptDecryptWidget
                 _clipboard.PrimaryClip = msg;
 
                 Toast.MakeText(this, "Encrypted : )", ToastLength.Short).Show();
-                
             };
 
             decryptMessage.Click += delegate {
@@ -99,9 +92,6 @@ namespace EncryptDecryptWidget
         }
 
 
-     
-
-
         private void SetTouchListener()
         {
             var mainContainer = floatingView.FindViewById<RelativeLayout>(Resource.Id.root);
@@ -121,9 +111,8 @@ namespace EncryptDecryptWidget
             {
                 _windowManager.RemoveView(floatingView);
             }
-            //   StopService(new Intent(this, typeof(EncryptDecryptWidgetService)));  you can stop service after destroy
+            //StopService(new Intent(this, typeof(EncryptDecryptWidgetService)));  you can also stop service
         }
-
 
         public static string PasswordEncrypt(string inText, string key)
         {
@@ -148,7 +137,6 @@ namespace EncryptDecryptWidget
 
             return inText;
         }
-
 
 
         public static string PasswordDecrypt(string cryptTxt, string key)
@@ -177,7 +165,8 @@ namespace EncryptDecryptWidget
         }
 
 
-
+    /// <summary>Moveable widget
+    /// </summary>
         public bool OnTouch(View view, MotionEvent motion)
         {
             switch (motion.Action)
@@ -217,7 +206,6 @@ namespace EncryptDecryptWidget
                     //calculate the X and Y coordinates of the view.
                     _layoutParams.X = _initialX + (int)(motion.RawX - _initialTouchX);
                     _layoutParams.Y = _initialY + (int)(motion.RawY - _initialTouchY);
-
 
                     expandedView.Visibility = ViewStates.Gone;
                   
